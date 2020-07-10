@@ -1,0 +1,188 @@
+@import "../styles/colors.scss";
+html {
+  font-size: 14px;
+  font-family: "Signika", sans-serif !important;
+  font-weight: 300;
+}
+body {
+  font-family: "Signika", sans-serif !important;
+  font-size: 14px;
+  line-height: 1.5rem;
+  color: #4f4f4f;
+}
+
+.italics {
+  font-style: italic;
+}
+
+.center-text {
+  text-align: center;
+}
+.right-text {
+  text-align: right;
+}
+.left-text {
+  text-align: right;
+}
+.bold {
+  font-weight: bold;
+}
+
+.app-button {
+  font-family: "Signika";
+  font-size: 14px;
+  font-weight: bold;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.heading {
+  font-family: "Signika";
+  font-weight: 600;
+}
+
+.notice-heading {
+  font-family: "Signika";
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.overview-heading {
+  font-family: "Signika";
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+}
+.item-heading-text {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.subtitle {
+  font-size: 0.7rem;
+}
+
+.error-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: $errorRed;
+}
+
+.form-prompt,
+.app-form-prompt {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: lighten($color: $main, $amount: 5);
+}
+
+.form-icon {
+  i {
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    color: $lightGreenText;
+  }
+  i:hover {
+    color: $lightGreen;
+  }
+}
+
+.profile-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $darkBlue;
+}
+
+.hover-link:hover {
+  color: $lightGreen;
+}
+
+.route-heading {
+  padding: 1rem 0;
+}
+
+.route-header-text {
+  font-family: "Signika";
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: lighten($color: $main, $amount: 20);
+}
+.route-sub-header-text {
+  font-family: "Signika";
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: lighten($color: $main, $amount: 20);
+}
+
+.error-state-text {
+  font-size: 1rem;
+  // display: inline-block;
+  padding: 2rem 0;
+}
+
+.modal-heading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem 0;
+  color: $darkGreen;
+}
+
+.excerpt {
+  span {
+    display: inline-block;
+    // width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  // .ovr {
+  // }
+}
+
+span.ovr {
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.form-section-header {
+  font-weight: 700;
+}
+
+.overview-label {
+  font-size: 1rem;
+  padding: 0.5rem 0;
+}
+
+.mega-number-text {
+  font-size: 3.5rem;
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+
+.mini-number-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+
+.auth-link {
+  color: $main;
+}
+
+.function-icon {
+  color: $main;
+  font-size: 5rem;
+}
+
+.function-text {
+  font-size: 1.5rem;
+  color: lighten($color: $main, $amount: 10);
+  font-weight: bold;
+}
+.function-box {
+  cursor: pointer;
+}
+
+.function-box:hover {
+  color: lighten($color: $main, $amount: 30);
+}

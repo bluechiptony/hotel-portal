@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="route-box bg-white">
+    <div class="route-heading">
+      <span class="route-header-text">Room Settings </span>
+    </div>
+    <div>
+      <div class="col-lg-4 col-md-5 col-xs-11">
+        <form (ngSubmit)="submitForm()" [formGroup]="settingsForm"></form>
+        <div class="app-form-row">
+          <label for="checkoutTime" class="app-form-row">Checkout Time</label>
+          <input type="text" placeholder="10:00 am" class="input-text" />
+        </div>
+        <div class="app-form-row">
+          <button class="app-button bg-main text-white">Update</button>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

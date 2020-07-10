@@ -1,1 +1,326 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import "styles/reset.scss";
+// @import "styles/grid.scss";
+// @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+// @import "~@ng-select/ng-select/themes/default.theme.css";
+// @import "~ng-pick-datetime/assets/style/picker.min.css";
+// @import "../node_modules/angular-calendar/css/angular-calendar.css";
+@import "styles/bootstrap-grid.scss";
+// @import "~ngx-toastr/toastr";
+@import "styles/elements.scss";
+@import "styles/colors.scss";
+@import "styles/text.scss";
+@import "styles/colors.scss";
+@import "styles/animations.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+body::-webkit-scrollbar {
+  width: 0.35rem;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #4e0467;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}
+
+.angular-editor-textarea:focus {
+  outline: none;
+}
+html,
+body {
+  height: 100%;
+  font-family: "Signika", sans-serif;
+}
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.office-bg {
+  //   background-image: url("assets/images/office-bg.jpg");
+  background-size: cover;
+}
+
+.table-height {
+  min-height: 550px;
+  width: 100%;
+  // background: red;
+}
+
+.mat-menu-item {
+  font-family: "Montserrat", sans-serif;
+  line-height: 38px !important;
+  height: 38px !important;
+  font-size: 0.8rem;
+  padding: 0 8px;
+}
+
+.mat-menu-item:hover {
+  background-color: #9129d241 !important;
+  color: #fff;
+}
+table {
+  width: 100%;
+  border: 0 !important;
+}
+
+//Cell excerpt
+//Max width for cell
+td.mat-cell {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  span {
+    // padding-left: 10px;
+    padding-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+td.mat-row {
+  width: 100%;
+  margin-bottom: 10px !important;
+}
+
+.mat-row {
+  width: 100%;
+  margin-bottom: 0.1rem !important;
+
+  height: 0px;
+  line-height: 48px;
+  border-bottom-width: 0;
+  border-bottom: 1px solid #a0a0a02a;
+  font-family: "Montserrat";
+  font-size: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  // box-shadow: 0 0 25px 0 #a0a0a02a;
+}
+
+.row-holder {
+  box-shadow: 0 0 25px 0 #a0a0a02a;
+}
+
+.mat-header-row {
+  background-color: $main;
+  line-height: 56px !important;
+}
+
+.table-header-cell {
+  border: 0 !important;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #fff;
+}
+.mat-cell,
+.table-cell {
+  border-bottom-width: 0;
+  border: 0 !important;
+
+  // background-color: red;
+}
+
+.table-cell-text {
+  font-size: 0.8rem;
+}
+.mat-row:hover {
+  background-color: rgba(85, 137, 249, 0.068);
+}
+
+/**
+Dialog reset style
+*/
+.mat-dialog-container {
+  box-shadow: rgba(51, 78, 205, 0.2);
+  padding: 0 !important;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(83, 11, 119, 0.174);
+}
+
+.modal-padding {
+  box-sizing: border-box;
+  padding: 2rem 2.2rem;
+}
+
+.ng-select.ng-select-opened.ng-select-bottom > .ng-select-container {
+  padding: 3px 10px;
+}
+
+.ng-select .ng-select-container {
+  border-radius: 0;
+  // border: 0.03px solid $darkGreen;
+  // padding: 5px 0;
+  // padding: 23px 10px;
+  padding: 3px 10px;
+  // padding: 5px 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.ng-select:focus .ng-select-container:focus {
+  border: 0.03px solid $darkGreen;
+}
+
+.ng-select.ng-select-multiple
+  .ng-select-container
+  .ng-value-container
+  .ng-value
+  .ng-value-label {
+  padding: 5px;
+}
+
+.ng-select-multiple {
+  padding: 0;
+}
+
+.ng-select .ng-arrow-wrapper .ng-arrow {
+  border-color: $darkGreen transparent transparent;
+}
+
+.ng-select.ng-select-opened {
+  .ng-select-container .ng-arrow {
+    border-color: $darkGreen transparent $darkGreen;
+  }
+}
+
+.angular-editor-textarea {
+  min-height: 200px !important;
+}
+
+.toast-container .ngx-toastr {
+  box-shadow: 0 0 30px 0 #5252524a;
+  border: 3px solid #63636357;
+  border-radius: 8px;
+  color: #f2f2f2;
+}
+
+.toast-container .ngx-toastr {
+  box-shadow: 0 0 30px 0 #5252524a;
+  border: 3px solid #63636357;
+  border-radius: 8px;
+  color: #f2f2f2;
+}
+
+.toast-container .ngx-toastr:hover {
+  box-shadow: 0 0 30px 0 #b0b0b04a;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.ngx-toastr {
+  background-color: #030303;
+  pointer-events: auto;
+}
+.toast-success {
+  background-color: rgb(88, 218, 88);
+}
+.toast-error {
+  background-color: $errorRed;
+}
+.toast-info {
+  background-color: #0c89b0;
+}
+.toast-warning {
+  background-color: #f89406;
+}
+
+.toast-close-button {
+  color: #63636357;
+}
+
+.toast-bottom-center {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+
+.mat-tab-label,
+.mat-tab-link {
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+  font-family: "Montserrat";
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.mat-tab-label:focus {
+  background-color: $main;
+  color: #fff !important;
+  .mat-tab-label-content {
+    color: #ffffff !important;
+  }
+}
+.mat-tab-label:hover {
+  background-color: lighten($color: $main, $amount: 80);
+}
+.mat-tab-label:focus:hover {
+  background-color: lighten($color: $main, $amount: 10);
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: transparent;
+}
+
+.cal-month-view .cal-cell:focus {
+  outline: none;
+}
+
+.cal-month-view .cal-day-badge {
+  background-color: $main !important;
+}
+
+.cal-month-view .cal-open-day-event {
+  background-color: $main !important;
+  color: white;
+}
+
+.uploadfilecontainer,
+.uploadfilecontainer-sm {
+  // background-image: url("../assets/images/undraw_add_file2_gvbb.svg");
+  //   background-image: url("assets/images/undraw_add_file2_gvbb.svg");
+  box-sizing: border-box;
+}
+
+.card.customclass,
+span.customclass,
+.card.customclass .card-header,
+.panel.customclass {
+  // background-color: #5bc0de;
+  color: #fff;
+}
+.panel.customclass .panel-body {
+  background-color: #337aa7;
+}
+button.btn {
+  background-color: transparent;
+  border: 0;
+  padding: 16px 20px;
+}
+
+.card.customclass {
+  padding: 16px 20px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

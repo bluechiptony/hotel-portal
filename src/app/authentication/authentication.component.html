@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row">
+    <div
+      class="col-lg-7 col-sm-6 col-xs-12 col-md-6 full-page-height centered-flex"
+    >
+      <div class="center-text">
+        <span class="block mega-number-text">B 54</span>
+        <div class="app-form-row">
+          <span class="block notice-heading">Sales Portal</span>
+        </div>
+        <img src="assets/images/front-desk.svg" height="300" alt="" srcset="" />
+      </div>
+    </div>
+    <div
+      class="col-lg-5 col-sm-6 col-xs-12 col-md-6 full-page-height centered-flex"
+    >
+      <div class="login-box center-text col-lg-8">
+        <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+          <div class="app-form-row">
+            <span class="block bold">Please enter your credentials</span>
+          </div>
+          <div class="app-form-row">
+            <input
+              type="text"
+              class="input-text full-width"
+              placeholder="email@email.com"
+              formControlName="emailAddress"
+            />
+            <div *ngIf="emailAddress.invalid && submitted" class="right-text">
+              <span class="error-text" *ngIf="emailAddress.errors.required"
+                >Please enter your email address</span
+              >
+            </div>
+          </div>
+          <div class="app-form-row">
+            <input
+              type="password"
+              class="input-text full-width"
+              placeholder="Password"
+              formControlName="password"
+            />
+            <div *ngIf="password.invalid && submitted" class="right-text">
+              <span class="error-text" *ngIf="password.errors.required"
+                >Please enter your password</span
+              >
+            </div>
+          </div>
+          <div class="app-form-row">
+            <button
+              class="app-button text-white bg-main full-width uppercase"
+              type="submit"
+            >
+              Login
+            </button>
+          </div>
+          <div class="app-form-row center-text">
+            <span>
+              Forgot your password
+              <span
+                class="link-up auth-link bold"
+                [routerLink]="['forgot-password']"
+                routerLinkActive="router-link-active"
+                >Click here</span
+              >
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

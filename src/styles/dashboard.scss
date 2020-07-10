@@ -1,0 +1,157 @@
+@import "../../styles/colors.scss";
+
+.main-content {
+  margin-left: 5rem;
+  // padding: 1rem;
+}
+.main-content-open {
+  margin-left: 20rem;
+  // padding: 1rem;
+}
+.top-bar {
+  padding: 1rem;
+}
+.router-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.navbar {
+  width: 5rem;
+  height: 100vh;
+  position: fixed;
+  background-color: $mainDark;
+
+  // color: #ffffff;
+  color: rgba($color: #ffffff, $alpha: 0.8);
+  transition: width 200ms ease-in-out;
+  cursor: pointer;
+  .navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .nav-text {
+    display: none;
+  }
+}
+
+.navbar-open {
+  width: 20rem;
+  height: 100vh;
+  position: fixed;
+  background-color: $mainDark;
+  // color: #ffffff;
+  color: rgba($color: #ffffff, $alpha: 0.8);
+  transition: width 200ms ease-in-out;
+  cursor: pointer;
+  .navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+.nav-item {
+  width: 100%;
+  background-color: transparent;
+  transition: all 200ms ease-in-out;
+  font-family: "Montserrat";
+  .sub-menu {
+    display: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 200ms ease-in-out;
+    .sub-list-item {
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 1;
+      transition: all 200ms ease-in-out;
+    }
+  }
+}
+.nav-item:hover {
+  background-color: lighten($color: $main, $amount: 5);
+}
+
+.nav-item:last-child {
+  margin-top: auto;
+}
+
+.list-menu {
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+}
+
+.sub-list-item {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.nav-text {
+  // margin-left: 1rem;
+  transition: display 200ms ease-in-out;
+  font-weight: 600;
+}
+
+.list-menu i {
+  font-size: 1.2rem;
+  min-width: 2.5rem;
+  margin: 0 1.5rem;
+}
+
+.navbar:hover {
+  width: 20rem;
+}
+
+.navbar:hover .nav-text {
+  display: block;
+}
+
+.navbar:hover .sub-menu {
+  display: block;
+}
+
+.navbar:hover .main-content {
+  margin-left: 20rem;
+}
+
+.nav-item:hover {
+  //   background-color: red;
+  .sub-menu {
+    display: block;
+    max-height: 20rem;
+    opacity: 1;
+    background-color: lighten($color: $main, $amount: 10);
+    .sub-list-item {
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 1;
+      padding: 1rem 0;
+      overflow: hidden;
+      padding-left: 5rem;
+    }
+  }
+}
+
+.sub-list-item:hover {
+  background-color: lighten($color: $main, $amount: 15);
+}
+
+.router-link-active {
+  // color: #f0f014;
+  color: lighten($color: $main, $amount: 35);
+}
+
+.router-bg {
+  background-color: #fcfaff;
+}

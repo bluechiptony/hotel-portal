@@ -1,0 +1,50 @@
+@import "../../styles/dashboard.scss";
+@import "../../styles/colors.scss";
+
+accordion-group {
+  width: 100%;
+  font-family: "Source Sans Pro";
+}
+
+.nav-text {
+  font-weight: bold;
+}
+
+.panel-heading .card-header .panel-enabled {
+  background-color: red;
+}
+
+.panel.customclass {
+  background-color: red;
+}
+
+.sub-menu {
+  background-color: lighten($color: $main, $amount: 5);
+}
+.sub-list {
+  li {
+    display: block;
+    box-sizing: border-box;
+    padding: 10px 20px 10px 40px;
+  }
+}
+
+.card.customclass,
+span.customclass,
+.card.customclass .card-header,
+.panel.customclass {
+  // background-color: #5bc0de;
+  color: #fff;
+}
+.panel.customclass .panel-body {
+  background-color: #337aa7;
+}
+button.btn {
+  background-color: transparent;
+  border: 0;
+  padding: 16px 20px;
+}
+
+.card.customclass {
+  padding: 16px 20px;
+}

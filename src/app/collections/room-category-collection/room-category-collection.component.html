@@ -1,0 +1,118 @@
+<div class="table-container bg-white">
+  <div *ngIf="!loading">
+    <!-- Table Data Start -->
+    <div class="table-filter-grid vert-padding">
+      <div></div>
+      <div></div>
+      <div>
+        <input
+          type="text"
+          class="input-text full-width"
+          placeholder="Search for Biller Category"
+        />
+      </div>
+      <!-- <div>
+              <button
+                class="app-button uppercase bg-main text-white pull-right"
+                [routerLink]="['/dashboard', 'notices', 'create']"
+                routerLinkActive="router-link-active"
+              >
+                Create Notice
+              </button>
+            </div> -->
+      <span class="clearfix"></span>
+    </div>
+
+    <div
+      class="table-height table-data-container"
+      *ngIf="!hasError && dataSource?.data?.length > 0"
+    >
+      <div class="adjacent-item-grid-4 top-padding">
+        <div
+          class="container-fluid addition-box centered-flex link-up full-width"
+          [routerLink]="['/dashboard', 'billers', 'new-biller-category']"
+          routerLinkActive="router-link-active"
+        >
+          <div class="center-text">
+            <i class="uil uil-focus-add"></i>
+            <span class="notice-heading block">Add new category</span>
+          </div>
+        </div>
+
+        <app-room-category-collection-item
+          *ngFor="let roomCategory of displayCollection | async"
+          [roomCategory]="roomCategory"
+        >
+        </app-room-category-collection-item>
+      </div>
+    </div>
+    <!-- Table Data end -->
+
+    <!-- Empty state start -->
+    <div
+      class="table-height table-empty-state-container centered-flex"
+      *ngIf="!hasError && dataSource?.data?.length == 0"
+    >
+      <div class="center-text">
+        <img src="assets/images/envelope.svg" height="200" alt="" srcset="" />
+        <p class="error-state-text">
+          No data available
+        </p>
+      </div>
+    </div>
+    <!-- Empty state end -->
+
+    <!-- Table error Start -->
+    <div class="table-height table-error centered-flex" *ngIf="hasError">
+      <div class="center-text">
+        <img src="assets/images/error.svg" height="200" alt="" srcset="" />
+        <p class="error-state-text">
+          Something happend. please try again later
+        </p>
+      </div>
+    </div>
+    <!-- Table end -->
+  </div>
+
+  <!-- Table Loader start -->
+  <div class="table-height table-loader centered-flex" *ngIf="loading">
+    <div class="center-text">
+      <div class="loader">
+        <!-- loading -->
+        <div class="loader_cogs">
+          <div class="loader_cogs__top">
+            <div class="top_part"></div>
+            <div class="top_part"></div>
+            <div class="top_part"></div>
+            <div class="top_hole"></div>
+          </div>
+          <div class="loader_cogs__left">
+            <div class="left_part"></div>
+            <div class="left_part"></div>
+            <div class="left_part"></div>
+            <div class="left_hole"></div>
+          </div>
+          <div class="loader_cogs__bottom">
+            <div class="bottom_part"></div>
+            <div class="bottom_part"></div>
+            <div class="bottom_part"></div>
+            <div class="bottom_hole"><!-- lol --></div>
+          </div>
+        </div>
+
+        <!-- Table Loader end -->
+      </div>
+      <br />
+      <!-- <p>loading</p> -->
+    </div>
+  </div>
+  <mat-paginator
+    #paginator
+    class=""
+    [ngClass]="{
+      'load-hide': loading && !hasError && dataSource?.data?.length > 0
+    }"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+  ></mat-paginator>
+</div>

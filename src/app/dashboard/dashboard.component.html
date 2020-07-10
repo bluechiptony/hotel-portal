@@ -1,0 +1,241 @@
+<nav [ngClass]="{ 'navbar-open': drawerOpen, navbar: !drawerOpen }">
+  <div class="app-form-row"></div>
+
+  <!-- Start staff navigation -->
+
+  <accordion [isAnimated]="true" [closeOthers]="true">
+    <accordion-group>
+      <button
+        class="btn btn-link"
+        accordion-heading
+        type="button"
+        [routerLink]="['/dashboard']"
+        routerLinkActive="router-link-active"
+      >
+        <i class="uil uil-dashboard"></i>
+        <span class="nav-text">Dashboard</span>
+      </button>
+    </accordion-group>
+
+    <accordion-group class="">
+      <button class="btn btn-link" accordion-heading type="button">
+        <i class="uil uil-home"></i>
+        <span class="nav-text">Rooms &amp; Reservations</span>
+      </button>
+
+      <div class="sub-menu">
+        <ul class="sub-list">
+          <li
+            class="sub-list-item"
+            [routerLink]="['rooms', 'room-settings']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Room Settings</span>
+          </li>
+          <li
+            class="sub-list-item"
+            [routerLink]="['rooms', 'categories']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Room Categories</span>
+          </li>
+          <li
+            class="sub-list-item"
+            [routerLink]="['rooms', 'new-room-category']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Add new Room Category</span>
+          </li>
+          <li
+            class="sub-list-item"
+            [routerLink]="['rooms', 'new-room']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Add new Room</span>
+          </li>
+          <li
+            class="sub-list-item"
+            [routerLink]="['rooms']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Room Availability</span>
+          </li>
+          <li
+            class="sub-list-item"
+            [routerLink]="['rooms']"
+            routerLinkActive="router-link-active"
+          >
+            <span>View Rooms</span>
+          </li>
+        </ul>
+      </div>
+    </accordion-group>
+    <accordion-group>
+      <button class="btn btn-link" accordion-heading type="button">
+        <i class="uil uil-briefcase-alt"></i>
+        <span class="nav-text">Bar &amp; Kitchen</span>
+      </button>
+
+      <div class="sub-menu">
+        <ul class="sub-list">
+          <li
+            class="sub-list-item"
+            [routerLink]="['bar', 'inventory']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Inventory</span>
+          </li>
+          <li
+            class="sub-list-item"
+            [routerLink]="['bar', 'sale']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Make Sale</span>
+          </li>
+          <li
+            class="sub-list-item"
+            [routerLink]="['postings']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Item Requests</span>
+          </li>
+        </ul>
+      </div>
+    </accordion-group>
+
+    <accordion-group>
+      <button class="btn btn-link" accordion-heading type="button">
+        <i class="uil uil-building"></i>
+        <span class="nav-text">Accounts</span>
+      </button>
+
+      <div class="sub-menu">
+        <ul class="sub-list">
+          <li
+            class="sub-list-item"
+            [routerLink]="['accounts']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Total</span>
+          </li>
+          <li
+            class="sub-list-item"
+            [routerLink]="['accounts']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Bar</span>
+          </li>
+          <li
+            class="sub-list-item"
+            [routerLink]="['accounts']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Kitchen</span>
+          </li>
+          <li
+            class="sub-list-item"
+            [routerLink]="['accounts']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Laundry</span>
+          </li>
+          <li
+            class="sub-list-item"
+            [routerLink]="['accounts']"
+            routerLinkActive="router-link-active"
+          >
+            <span>Rooms</span>
+          </li>
+        </ul>
+      </div>
+    </accordion-group>
+
+    <accordion-group>
+      <button class="btn btn-link" accordion-heading type="button">
+        <i class="uil uil-calendar-slash"></i>
+        <span class="nav-text">User Management</span>
+      </button>
+
+      <div class="sub-menu">
+        <ul class="sub-list">
+          <li
+            class="sub-list-item"
+            [routerLink]="['users']"
+            routerLinkActive="router-link-active"
+          >
+            <span>User Accounts</span>
+          </li>
+        </ul>
+      </div>
+    </accordion-group>
+
+    <accordion-group>
+      <button
+        class="btn btn-link"
+        accordion-heading
+        type="button"
+        [routerLink]="['/dashboard', 'profile']"
+        routerLinkActive="router-link-active"
+      >
+        <i class="uil uil-user-square"></i>
+        <span class="nav-text">My Profile</span>
+      </button>
+    </accordion-group>
+  </accordion>
+
+  <!-- End staff navigation -->
+</nav>
+<main
+  class="bg-backdrop full-page-height router-bg"
+  [ngClass]="{ 'main-content-open': drawerOpen, 'main-content': !drawerOpen }"
+>
+  <div class="container-fluid top-bar bg-white">
+    <div class="">
+      <i class="uil uil-list-ul link-up" (click)="toggleDrawer()"></i>
+      &nbsp;
+
+      <span class="" *ngIf="loggedInUser.accountType != 'STAFF'">
+        {{ adminContext }}
+        <i
+          class="uil uil-angle-double-down link-up"
+          [matMenuTriggerFor]="userMenu"
+        ></i>
+        <mat-menu #userMenu="matMenu" xPosition="before">
+          <span mat-menu-item (click)="changeContext('ADMINISTRATION')">
+            Administration
+          </span>
+          <span mat-menu-item (click)="changeContext('HUMAN_RESOURCES')">
+            Human Resources
+          </span>
+          <span mat-menu-item (click)="changeContext('OPERATIONS')">
+            Operations
+          </span>
+        </mat-menu>
+      </span>
+      <span
+        class="pull-right profile-name link-up text-main"
+        *ngIf="authState?.loggedIn"
+        ><span
+          >{{ loggedInUser?.firstName }} {{ loggedInUser?.lastName }}
+        </span>
+        <span
+          ><i
+            class="uil uil-user-circle profile-name text-main"
+            [matMenuTriggerFor]="profileMenu"
+          ></i
+        ></span>
+        <mat-menu #profileMenu="matMenu" xPosition="before">
+          <span mat-menu-item [routerLink]="['/dashboard', 'profile']">
+            My Profile
+          </span>
+          <span mat-menu-item (click)="logOut()">
+            Log Out
+          </span>
+        </mat-menu>
+      </span>
+    </div>
+  </div>
+  <div class="vert-padding router-padding">
+    <router-outlet></router-outlet>
+  </div>
+</main>

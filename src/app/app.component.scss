@@ -1,0 +1,55 @@
+.loader-holder {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 2.5px;
+  z-index: 19089;
+  background-color: transparent;
+  //   background-color: red;
+}
+
+@keyframes loadingRoute {
+  0% {
+    transform: scaleX(0);
+  }
+  25% {
+    transform: scaleX(0.25);
+  }
+  50% {
+    transform: scaleX(0.5);
+  }
+  75% {
+    transform: scaleX(0.75);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.loader-holder::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(134, 235, 237, 0.742);
+
+  overflow: hidden;
+  z-index: -1;
+  transform: scaleX(0);
+  animation-name: loadingRoute;
+  animation-duration: 5s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  transform-origin: left;
+}
+
+// .loader {
+//   height: 10px;
+//   background-color: red;
+//   position: absolute;
+//   z-index: 19089;
+//   width: 100%;
+// }

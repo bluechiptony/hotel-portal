@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="route-box bg-white">
+    <div class="route-heading">
+      <span class="route-header-text">New Room Category</span>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-xs-11">
+        <form [formGroup]="appForm" (ngSubmit)="(submitForm)">
+          <div class="app-form-row">
+            <label for="" class="app-form-prompt">Category Title</label>
+            <input type="text" class="input-text" placeholder="Deluxe" />
+          </div>
+
+          <div class="app-form-row">
+            <label for="" class="app-form-prompt">Room Price</label>
+            <input type="number" class="input-text" placeholder="2444.00" />
+          </div>
+          <div class="app-form-row">
+            <label for="" class="app-form-prompt">Facilities</label>
+            <angular-editor
+              formControlName="facilities"
+              [config]="editorConfig"
+            ></angular-editor>
+          </div>
+
+          <div class="app-form-row">
+            <button class="app-button text-white bg-main uppercase">
+              Create Room
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
