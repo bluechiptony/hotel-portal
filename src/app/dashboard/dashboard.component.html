@@ -106,42 +106,36 @@
     <accordion-group>
       <button class="btn btn-link" accordion-heading type="button">
         <i class="uil uil-building"></i>
-        <span class="nav-text">Accounts</span>
+        <span class="nav-text">Sale Records</span>
       </button>
 
       <div class="sub-menu">
         <ul class="sub-list">
           <li
             class="sub-list-item"
-            [routerLink]="['accounts']"
+            [routerLink]="['sales', 'total']"
             routerLinkActive="router-link-active"
           >
             <span>Total</span>
           </li>
           <li
             class="sub-list-item"
-            [routerLink]="['accounts']"
+            [routerLink]="['sales', 'bar']"
             routerLinkActive="router-link-active"
           >
-            <span>Bar</span>
+            <span>Bar &amp; Kitchen</span>
           </li>
+
           <li
             class="sub-list-item"
-            [routerLink]="['accounts']"
-            routerLinkActive="router-link-active"
-          >
-            <span>Kitchen</span>
-          </li>
-          <li
-            class="sub-list-item"
-            [routerLink]="['accounts']"
+            [routerLink]="['sales', 'laundry']"
             routerLinkActive="router-link-active"
           >
             <span>Laundry</span>
           </li>
           <li
             class="sub-list-item"
-            [routerLink]="['accounts']"
+            [routerLink]="['sales', 'rooms']"
             routerLinkActive="router-link-active"
           >
             <span>Rooms</span>

@@ -4,8 +4,11 @@ import { InventoryCollectionComponent } from './inventory-collection.component';
 import { InventoryCollectionItemComponent } from './inventory-collection-item/inventory-collection-item.component';
 
 @NgModule({
-  declarations: [InventoryCollectionComponent, InventoryCollectionItemComponent],
+  declarations: [
+    InventoryCollectionComponent,
+    InventoryCollectionItemComponent,
+  ],
   imports: [CommonModule],
-  exports: [InventoryCollectionComponent],
+  exports: [InventoryCollectionComponent, InventoryCollectionItemComponent],
 })
 export class InventoryCollectionModule {}

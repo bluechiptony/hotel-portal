@@ -400,22 +400,6 @@ div.overview-content div.overview-list-box:last-child {
 .notice-box:hover {
   box-shadow: 0 0 20px 0 #16043030;
 }
-.addition-box {
-  box-sizing: border-box;
-  padding: 2rem;
-
-  border-radius: 0.4rem;
-  border: 1px dashed #16043074;
-  // box-shadow: 0 0 20px 0 #16043023;
-  transition: all 0.3s ease-in-out;
-  background-color: #faf6ff;
-}
-
-.addition-box:hover {
-  // box-shadow: 0 0 20px 0 #16043030;
-  border: 1px dashed #26065274;
-  background-color: #ede3fa;
-}
 
 .table-pill {
   box-sizing: border-box;
@@ -559,21 +543,57 @@ div.overview-content div.overview-list-box:last-child {
 
 /** end file upload container **/
 
+// .collection-item-box {
+//   cursor: pointer;
+//   box-sizing: border-box;
+//   border-radius: 0.2rem;
+//   padding: 1rem;
+
+//   background-color: #f6f2fcd7;
+
+//   border: 1px solid #00000011;
+//   box-shadow: 0 0 10px 0 #00000008;
+//   border-bottom: 3px solid #855cc2d7;
+//   @include appTransition();
+// }
+
+// .collection-item-box:hover {
+//   border-bottom: 3px solid #472a74d7;
+//   background-color: #e6def3d7;
+// }
+
+.addition-box {
+  box-sizing: border-box;
+  padding: 2rem;
+
+  border-radius: 0.4rem;
+  border: 1px dashed #42c4b7b6;
+  // box-shadow: 0 0 20px 0 #16043023;
+  transition: all 0.3s ease-in-out;
+  background-color: #def5f3;
+}
+
+.addition-box:hover {
+  // box-shadow: 0 0 20px 0 #16043030;
+  border: 1px dashed #3ab3a66c;
+  background-color: #f4fefd;
+}
+
 .collection-item-box {
   cursor: pointer;
   box-sizing: border-box;
   border-radius: 0.2rem;
   padding: 1rem;
-  // background-color: rgba($color: #000000, $alpha: 0.042);
-  background-color: #f6f2fcd7;
+  background-color: #42c4b7;
+  background-color: #f4fefd;
 
-  border: 1px solid #00000011;
+  border: 1px solid #42c4b729;
   box-shadow: 0 0 10px 0 #00000008;
-  border-bottom: 3px solid #855cc2d7;
+  border-bottom: 3px solid #42c4b7c4;
   @include appTransition();
 }
 
 .collection-item-box:hover {
-  border-bottom: 3px solid #472a74d7;
-  background-color: #e6def3d7;
+  border-bottom: 3px solid #3ab3a66c;
+  background-color: #e0f7f4d8;
 }

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InventoryTableComponent } from './inventory-table.component';
+import { SaleTableComponent } from './sale-table.component';
 import { MatDependencyModule } from 'src/app/shared/mat-dependency/mat-dependency.module';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [InventoryTableComponent],
+  declarations: [SaleTableComponent],
   imports: [CommonModule, MatDependencyModule, RouterModule],
-  exports: [InventoryTableComponent],
+  exports: [SaleTableComponent],
 })
-export class InventoryTableModule {}
+export class SaleTableModule {}

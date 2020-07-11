@@ -5,13 +5,15 @@ import { Subscription, Observable } from 'rxjs';
 import { MatSort } from '@angular/material/sort';
 import { RoomService } from 'src/app/services/room.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { UserModalComponent } from 'src/app/modals/user-modal/user-modal.component';
 
 @Component({
-  selector: 'app-inventory-collection',
-  templateUrl: './inventory-collection.component.html',
-  styleUrls: ['./inventory-collection.component.scss'],
+  selector: 'app-user-collection',
+  templateUrl: './user-collection.component.html',
+  styleUrls: ['./user-collection.component.scss'],
 })
-export class InventoryCollectionComponent implements OnInit {
+export class UserCollectionComponent implements OnInit {
   billerSubscription: Subscription;
   dataSource: MatTableDataSource<RoomCategory>;
   billers: RoomCategory[] = [];
@@ -22,7 +24,7 @@ export class InventoryCollectionComponent implements OnInit {
   hasError: boolean;
   errorMessage: string;
 
-  constructor(private billerService: RoomService) {}
+  constructor(private billerService: RoomService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getBillers();
@@ -79,5 +81,11 @@ export class InventoryCollectionComponent implements OnInit {
       this.hasData = false;
       this.hasError = false;
     }
+  };
+
+  openModal = (user?: any) => {
+    this.dialog.open(UserModalComponent, {
+      width: '400px',
+    });
   };
 }

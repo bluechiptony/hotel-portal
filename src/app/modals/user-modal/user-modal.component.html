@@ -1,0 +1,74 @@
+<div class="modal-padding">
+  <div>
+    <span class="route-header-text">Create System User</span>
+    <span class="pull-right">
+      <i class="uil uil-times-circle link-up" (click)="close()"></i>
+    </span>
+    <span class="clearfix"></span>
+  </div>
+
+  <!-- Firm start -->
+  <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+    <div>
+      <div class="app-form-row">
+        <label for="" class="form-prompt">First Name</label>
+        <input
+          type="text"
+          class="input-text full-width"
+          placeholder="e.g James"
+          formControlName="firstName"
+        />
+      </div>
+      <div class="app-form-row">
+        <label for="" class="form-prompt">Last Name / Surname</label>
+        <input
+          type="text"
+          class="input-text full-width"
+          placeholder="e.g Okadigbo"
+          formControlName="lastName"
+        />
+      </div>
+      <div class="app-form-row">
+        <label for="" class="form-prompt">Email address</label>
+        <input
+          type="text"
+          class="input-text full-width"
+          placeholder="e.g james.okadigbo@gmail.com"
+          formControlName="emailAddress"
+        />
+      </div>
+
+      <hr />
+
+      <div class="app-form-row">
+        <label for="" class="form-prompt">Account Type</label>
+        <ng-select
+          class="block"
+          style="width: 100%;"
+          placeholder="Select For Account type"
+          bindLabel="item"
+          [items]="accountTypes"
+          formControlName="accountType"
+        >
+          <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+            <div>
+              <span> </span><span [ngOptionHighlight]="search">{{ item }}</span>
+            </div>
+          </ng-template>
+        </ng-select>
+      </div>
+
+      <div class="app-form-row">
+        <button
+          class="app-button text-white bg-main pull-right"
+          type="submit"
+          [ngClass]="{ 'anim-button': loading }"
+        >
+          Create User
+        </button>
+        <span class="clearfix"></span>
+      </div>
+    </div>
+  </form>
+  <!-- Form end -->
+</div>

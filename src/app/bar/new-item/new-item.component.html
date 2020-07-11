@@ -1,10 +1,57 @@
 <div class="container-fluid">
   <div class="route-box bg-white">
     <div class="route-heading">
-      <span class="route-header-text">New Item </span>
+      <span class="route-header-text">New Stock Item </span>
     </div>
-    <div>
-      <!-- <app-room-category-collection></app-room-category-collection> -->
+    <div class="row">
+      <div class="col-lg-10 col-md-10 col-xs-11">
+        <form [formGroup]="appForm" (ngSubmit)="(submitForm)">
+          <div class="two-column-grid">
+            <div>
+              <div class="app-form-row">
+                <label for="" class="app-form-prompt">Item Name</label>
+                <input
+                  type="text"
+                  class="input-text"
+                  placeholder="Star Lager Beer"
+                />
+              </div>
+              <div class="app-form-row">
+                <label for="" class="app-form-prompt"
+                  >Select Departments available in</label
+                >
+                <input type="text" class="input-text" placeholder="Bar" />
+              </div>
+              <div class="app-form-row">
+                <label for="" class="app-form-prompt">Cost Price (₦)</label>
+                <input type="number" class="input-text" placeholder="250.00" />
+              </div>
+              <div class="app-form-row">
+                <label for="" class="app-form-prompt"
+                  >Unit sale price (₦)</label
+                >
+                <input type="number" class="input-text" placeholder="300.00" />
+              </div>
+
+              <div class="app-form-row">
+                <button class="app-button text-white bg-main uppercase">
+                  Create Stock Item
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <div class="app-form-row">
+                <label for="" class="app-form-prompt">Item Description</label>
+                <angular-editor
+                  formControlName="roomDescription"
+                  [config]="editorConfig"
+                ></angular-editor>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

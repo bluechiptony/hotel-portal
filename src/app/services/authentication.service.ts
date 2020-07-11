@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoginRequest, PasswordCreationRequest } from 'bluechip-b54';
+import { LoginRequest, PasswordCreationRequest, User } from 'bluechip-b54';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -40,5 +40,16 @@ export class AuthenticationService {
       `${this.BASE_URL}/authentication/activate-account`,
       changeRequest
     );
+  };
+
+  createUserFromObject = (prospect: any): User => {
+    let user: User = {
+      firstName: prospect.firstName,
+      lastName: prospect.lastName,
+      emailAddress: prospect.emailAddress,
+      accountType: prospect.accountType,
+    };
+
+    return user;
   };
 }

@@ -1,0 +1,24 @@
+<div class="collection-item-box">
+  <div class="billerCategory-ci-heading ellipse-overflow">
+    <span
+      class="collection-item-title ellipse-overflow text-main"
+      matTooltip="{{ roomCategory?.categoryName }}"
+      >{{ roomCategory?.categoryName }}</span
+    >
+    <hr />
+    <span class="subtitle block">{{ roomCategory?.categoryCode }}</span>
+  </div>
+  <div class="billerCategory-image-layer">
+    <div class="ellipse-overflow" matTooltip="{{ roomCategory?.categoryName }}">
+      <!-- {{ billerCategory?.description }} -->
+    </div>
+  </div>
+  <div class="collection-item-footer two-column-grid">
+    <!-- <div>
+          <span class="subtitle block">Date Enrolled</span>
+          <span class="subtitle block">{{
+            new Date() | date: "mediumDate"
+          }}</span>
+        </div> -->
+  </div>
+</div>

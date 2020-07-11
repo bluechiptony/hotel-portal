@@ -3,12 +3,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "styles/reset.scss";
 // @import "styles/grid.scss";
-// @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
-// @import "~@ng-select/ng-select/themes/default.theme.css";
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
 // @import "~ng-pick-datetime/assets/style/picker.min.css";
 // @import "../node_modules/angular-calendar/css/angular-calendar.css";
 @import "styles/bootstrap-grid.scss";
-// @import "~ngx-toastr/toastr";
+@import "~ngx-toastr/toastr";
 @import "styles/elements.scss";
 @import "styles/colors.scss";
 @import "styles/text.scss";
@@ -149,7 +149,7 @@ Dialog reset style
 }
 
 .cdk-overlay-dark-backdrop {
-  background: rgba(83, 11, 119, 0.174);
+  background: rgba(165, 255, 246, 0.174);
 }
 
 .modal-padding {
