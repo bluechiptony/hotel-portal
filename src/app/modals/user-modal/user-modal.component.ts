@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-modal',
@@ -11,6 +11,7 @@ export class UserModalComponent implements OnInit {
   userForm: FormGroup;
   loading: boolean;
   accountTypes: string[] = ['ADMINISTRATOR', 'SALES'];
+  submitted: boolean;
   constructor(
     private dialogRef: MatDialogRef<UserModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -23,15 +24,15 @@ export class UserModalComponent implements OnInit {
 
   buildForm = (user?: any) => {
     this.userForm = this.fb.group({
-      firstName: [],
-      lastName: [],
-      emailAddress: [],
-
-      accountType: [],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      emailAddress: ['', Validators.required],
+      accountType: ['', Validators.required],
     });
   };
 
   submitForm = () => {
+    this.submitted = true;
     if (this.userForm.valid) {
       let user = this.userForm.value;
       // this.createUser(user);
@@ -98,5 +99,8 @@ export class UserModalComponent implements OnInit {
   }
   get emailAddress() {
     return this.userForm.get('emailAddress');
+  }
+  get accountType() {
+    return this.userForm.get('accountType');
   }
 }

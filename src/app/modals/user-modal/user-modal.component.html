@@ -18,6 +18,11 @@
           placeholder="e.g James"
           formControlName="firstName"
         />
+        <div class="" *ngIf="submitted && firstName.invalid">
+          <span class="error-text" *ngIf="firstName.errors.required"
+            >Please enter the user's first name</span
+          >
+        </div>
       </div>
       <div class="app-form-row">
         <label for="" class="form-prompt">Last Name / Surname</label>
@@ -27,6 +32,11 @@
           placeholder="e.g Okadigbo"
           formControlName="lastName"
         />
+        <div class="" *ngIf="submitted && lastName.invalid">
+          <span class="error-text" *ngIf="lastName.errors.required"
+            >Please enter the user's last name</span
+          >
+        </div>
       </div>
       <div class="app-form-row">
         <label for="" class="form-prompt">Email address</label>
@@ -36,6 +46,11 @@
           placeholder="e.g james.okadigbo@gmail.com"
           formControlName="emailAddress"
         />
+        <div class="" *ngIf="submitted && emailAddress.invalid">
+          <span class="error-text" *ngIf="emailAddress.errors.required"
+            >Please enter the user's email address</span
+          >
+        </div>
       </div>
 
       <hr />
@@ -56,6 +71,12 @@
             </div>
           </ng-template>
         </ng-select>
+
+        <div class="" *ngIf="submitted && accountType.invalid">
+          <span class="error-text" *ngIf="accountType.errors.required"
+            >Please enter the user's account type</span
+          >
+        </div>
       </div>
 
       <div class="app-form-row">
