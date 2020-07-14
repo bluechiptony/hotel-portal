@@ -1,4 +1,4 @@
-import { AuthenticationState } from 'bluechip-b54';
+import { AuthenticationState } from 'hotel-lib';
 import * as AuthenticationActions from '../actions/authentication.action';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { environment } from 'src/environments/environment';

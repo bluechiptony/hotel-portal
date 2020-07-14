@@ -4,12 +4,12 @@ import { UserCollectionComponent } from './user-collection.component';
 import { MatDependencyModule } from 'src/app/shared/mat-dependency/mat-dependency.module';
 import { UserCollectionItemComponent } from './user-collection-item/user-collection-item.component';
 import { RouterModule } from '@angular/router';
-import { FormDependencyModule } from 'src/app/shared/form-dependency/form-dependency.module';
-import { UserModalComponent } from 'src/app/modals/user-modal/user-modal.component';
+import { AuthorizationIterceptorProviders } from 'src/app/services/interceptors';
 
 @NgModule({
   declarations: [UserCollectionComponent, UserCollectionItemComponent],
   imports: [CommonModule, MatDependencyModule, RouterModule],
   exports: [UserCollectionComponent, UserCollectionItemComponent],
+  providers: [AuthorizationIterceptorProviders],
 })
 export class UserCollectionModule {}

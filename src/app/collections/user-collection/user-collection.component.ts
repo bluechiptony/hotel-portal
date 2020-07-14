@@ -1,12 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { RoomCategory } from 'hotel-lib';
+import { User } from 'hotel-lib';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription, Observable } from 'rxjs';
 import { MatSort } from '@angular/material/sort';
-import { RoomService } from 'src/app/services/room.service';
+
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { UserModalComponent } from 'src/app/modals/user-modal/user-modal.component';
+import { UserService } from 'src/app/services/user.service';
+import { AppService } from 'src/app/services/app.service';
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-user-collection',
@@ -14,22 +17,27 @@ import { UserModalComponent } from 'src/app/modals/user-modal/user-modal.compone
   styleUrls: ['./user-collection.component.scss'],
 })
 export class UserCollectionComponent implements OnInit {
-  billerSubscription: Subscription;
-  dataSource: MatTableDataSource<RoomCategory>;
-  billers: RoomCategory[] = [];
+  userSubscription: Subscription;
+  dataSource: MatTableDataSource<User>;
+  hasError: boolean;
+  users: User[] = [];
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   loading: boolean;
-  hasError: boolean;
+
   errorMessage: string;
 
-  constructor(private billerService: RoomService, private dialog: MatDialog) {}
+  constructor(
+    private userService: UserService,
+    private dialog: MatDialog,
+    private appService: AppService
+  ) {}
 
   ngOnInit(): void {
     this.getBillers();
   }
-  users: any[] = [];
+
   private paginator: MatPaginator;
 
   @ViewChild(MatPaginator, { static: false }) set contentPaginator(
@@ -61,15 +69,22 @@ export class UserCollectionComponent implements OnInit {
   }
 
   getBillers = () => {
-    this.billerSubscription = this.billerService
-      .getRooms()
-      .subscribe((billers: RoomCategory[]) => {
-        this.billers = billers;
-        this.loadDataSource(billers);
-      });
+    this.userSubscription = this.userService.getUsers().subscribe(
+      (users: User[]) => {
+        console.log(users);
+
+        this.users = users;
+        this.loadDataSource(users);
+      },
+      (error) => {
+        this.hasError = true;
+
+        this.appService.processError(error);
+      }
+    );
   };
 
-  loadDataSource = (data: RoomCategory[]) => {
+  loadDataSource = (data: User[]) => {
     this.loading = false;
     if (data.length > 0) {
       this.dataSource = new MatTableDataSource(data);

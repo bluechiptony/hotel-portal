@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { User, AccountType } from 'bluechip-b54';
+import { User, AccountType } from 'hotel-lib';
 
 export const LOGIN_USER = '[LOGGEDINUSER] Login';
 export const LOGOUT_USER = '[LOGGEDINUSER] Logout';

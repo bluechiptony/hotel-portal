@@ -39,8 +39,8 @@
         </div>
 
         <app-user-collection-item
-          *ngFor="let roomCategory of displayCollection | async"
-          [roomCategory]="roomCategory"
+          *ngFor="let user of displayCollection | async"
+          [user]="user"
         >
         </app-user-collection-item>
       </div>

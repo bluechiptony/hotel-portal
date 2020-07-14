@@ -7,6 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { StoreModule } from '@ngrx/store';
+import { authenticationReducer } from './state-management/reducers/authentication.reducer';
+import { AuthorizationIterceptorProviders } from './services/interceptors';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,8 +25,12 @@ import { ToastrModule } from 'ngx-toastr';
       progressBar: true,
       progressAnimation: 'increasing',
     }),
+    StoreModule.forRoot({
+      authenticationReducer: authenticationReducer,
+    }),
   ],
-  providers: [],
+  providers: [AuthorizationIterceptorProviders],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { User, AuthenticationState } from 'hotel-lib';
+import { Store } from '@ngrx/store';
+import * as AuthActions from '../state-management/actions/authentication.action';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,21 +16,23 @@ export class DashboardComponent implements OnInit {
     loggedIn: true,
   };
   drawerOpen: boolean = true;
-  loggedInUser: any = {
-    firstName: 'Jack',
-    lastName: 'Grealish',
-  };
+  authSubScription: Subscription;
+  contextSubScription: Subscription;
+  loggedInUser: User;
 
-  constructor() {}
+  constructor(
+    private router: Router,
+    private authStore: Store<AuthenticationState>
+  ) {}
 
   ngOnInit() {
     this.createSubscriptions();
   }
 
   ngOnDestroy() {
-    // if (this.authSubScription) {
-    //   this.authSubScription.unsubscribe();
-    // }
+    if (this.authSubScription) {
+      this.authSubScription.unsubscribe();
+    }
     // if (this.contextSubScription) {
     //   this.authSubScription.unsubscribe();
     // }
@@ -38,21 +45,21 @@ export class DashboardComponent implements OnInit {
   changeOpenstate(evt: any) {}
 
   logOut() {
-    // this.authStore.dispatch({ type: AuthActions.LOGOUT_USER });
-    // this.router.navigate(['']);
+    this.authStore.dispatch({ type: AuthActions.LOGOUT_USER });
+    this.router.navigate(['']);
   }
 
   createSubscriptions = (): void => {
-    // this.authSubScription = this.authStore
-    //   .select<any>('authenticationReducer')
-    //   .subscribe((data: AuthenticationState) => {
-    //     if (data == undefined) {
-    //       this.router.navigate(['']);
-    //     } else {
-    //       this.loggedInUser = data.user;
-    //       this.authState = data;
-    //     }
-    //   });
+    this.authSubScription = this.authStore
+      .select<any>('authenticationReducer')
+      .subscribe((data: AuthenticationState) => {
+        if (data == undefined) {
+          this.router.navigate(['']);
+        } else {
+          this.loggedInUser = data.user;
+          this.authState = data;
+        }
+      });
     // this.contextSubScription = this.adminContextStore
     //   .select<any>('adminContextReducer')
     //   .subscribe((data: AdminContext) => {

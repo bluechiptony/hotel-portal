@@ -2,14 +2,14 @@
   <div class="billerCategory-ci-heading ellipse-overflow">
     <span
       class="collection-item-title ellipse-overflow text-main"
-      matTooltip="{{ roomCategory?.categoryName }}"
-      >{{ roomCategory?.categoryName }}</span
+      matTooltip="{{ user?.firstName }} {{user?.lastName}}"
+      >{{ user?.firstName }} {{user?.lastName}}</span
     >
     <hr />
-    <span class="subtitle block">{{ roomCategory?.categoryCode }}</span>
+    <span class="subtitle block">{{ user?.emailAddress }}</span>
   </div>
   <div class="billerCategory-image-layer">
-    <div class="ellipse-overflow" matTooltip="{{ roomCategory?.categoryName }}">
+    <div class="ellipse-overflow" matTooltip="{{ user?.firstName }}">
       <!-- {{ billerCategory?.description }} -->
     </div>
   </div>

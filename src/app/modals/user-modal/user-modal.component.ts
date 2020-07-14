@@ -1,6 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationProfile, User } from 'hotel-lib';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AppService } from 'src/app/services/app.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-modal',
@@ -15,7 +19,10 @@ export class UserModalComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<UserModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authenticationService: AuthenticationService,
+    private appService: AppService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +42,7 @@ export class UserModalComponent implements OnInit {
     this.submitted = true;
     if (this.userForm.valid) {
       let user = this.userForm.value;
-      // this.createUser(user);
+      this.createUser(user);
     } else {
     }
   };
@@ -44,52 +51,45 @@ export class UserModalComponent implements OnInit {
     this.dialogRef.close(false);
   };
 
-  // createUser = (user: User) => {
-  //   this.loading = true;
-  //   this.authenticationService.createUserAccount(user).subscribe(
-  //     (data: any) => {
-  //       console.log(data);
+  createUser = (user: User) => {
+    this.loading = true;
+    this.userService.createUserAccount(user).subscribe(
+      (data: any) => {
+        console.log(data);
 
-  //       this.loading = false;
-  //       this.authenticationService.showSuccess(data.message);
-  //       if (data.hasOwnProperty('userCode')) {
-  //         let profile: AuthenticationProfile = {
-  //           emailAddress: user.emailAddress,
-  //           accountType: user.accountType,
-  //           userCode: data.userCode,
-  //         };
-  //         this.createAuthenticationProfile(profile);
-  //       }
-  //     },
-  //     (error) => {
-  //       this.loading = false;
-  //       this.app.processError(error);
-  //     }
-  //   );
-  // };
+        this.loading = false;
+        this.appService.showSuccess(data.message);
+        if (data.hasOwnProperty('userCode')) {
+          let profile: AuthenticationProfile = {
+            emailAddress: user.emailAddress,
+            accountType: user.accountType,
+            userCode: data.userCode,
+            active: false,
+          };
+          this.createAuthenticationProfile(profile);
+        }
+      },
+      (error) => {
+        this.loading = false;
+        this.appService.processError(error);
+      }
+    );
+  };
 
-  // createAuthenticationProfile = (profile: AuthenticationProfile) => {
-  //   this.loading = true;
-  //   this.authenticationService.createAuthenticationProfile(profile).subscribe(
-  //     (data: any) => {
-  //       console.log(data);
-  //       this.loading = false;
-  //       this.authenticationService.showSuccess(data.message);
-  //       if (data.hasOwnProperty('userCode')) {
-  //         let assignment: AccountAssignment = {
-  //           userCode: data.userCode,
-  //           departmentCode: this.userForm.value.departmentCode,
-  //           zonalCommandCode: this.userForm.value.zonalCommandCode,
-  //         };
-  //         this.assignToUnit(assignment);
-  //       }
-  //     },
-  //     (error) => {
-  //       this.loading = false;
-  //       this.app.processError(error);
-  //     }
-  //   );
-  // };
+  createAuthenticationProfile = (profile: AuthenticationProfile) => {
+    this.loading = true;
+    this.authenticationService.createAuthenticationProfile(profile).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.loading = false;
+        this.appService.showSuccess(data.message);
+      },
+      (error) => {
+        this.loading = false;
+        this.appService.processError(error);
+      }
+    );
+  };
 
   get firstName() {
     return this.userForm.get('firstName');
